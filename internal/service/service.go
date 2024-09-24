@@ -2,15 +2,23 @@ package service
 
 import (
 	"api-rest/internal/core"
+	"fmt"
 
 	"gorm.io/gorm"
 )
 
-//pega todos os produtos cadastrados no banco
-func GetAll(db *gorm.DB) ([]core.Produtos, error){
-	var produto []core.Produtos
-	produtoToGet := db.Table("produtos").Find(&produto)
+// pega todos os produtos cadastrados no banco
+func GetAll(db *gorm.DB) ([]core.Produtos, error) {
 
-	return produto, produtoToGet.Error
+	var produtos []core.Produtos
 
+	if err := db.Table("produtos").Find(&produtos).Error; err != nil {
+		fmt.Println("Erro ao buscar os produtos:", err)
+
+	}
+
+	for _, produto := range produtos {
+		fmt.Println(produto)
+	}
+	return produtos, nil
 }

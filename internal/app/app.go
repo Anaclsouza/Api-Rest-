@@ -3,19 +3,23 @@ package internal
 import (
 	"fmt"
 
+	db "api-rest/internal/infraestucture"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
-func ConectionDb() (*gorm.DB, error){
+const (
+	TimeZone = "America/Sao_Paulo"
+)
 
-conection:= "host=localhost user=postgres password=Cas1974c#2024 dbname=postgres port=5432 sslmode=disable TimeZone=America/Sao_Paulo"
-db, err := gorm.Open(postgres.Open(conection))
-if err != nil {
-	fmt.Println(err)
+func ConectionDb(config *db.Config) (*gorm.DB, error) {
+
+	conection := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s", config.Host,config.User, config.Password, config.DbName, config.Port, config.Sslmode, TimeZone)
+	db, err := gorm.Open(postgres.Open(conection))
+	if err != nil {
+		fmt.Println(err, "database not connected")
+	}
+	return db, err
+
 }
-return db, err
-
-}
-
-

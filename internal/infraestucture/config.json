@@ -1,0 +1,8 @@
+{
+    "host": "localhost",
+    "user": "postgres",
+    "password": "Cas1974c#2024",
+    "dbname":"postgres",
+    "sslmode": "disable",
+    "port": "5432"
+}
