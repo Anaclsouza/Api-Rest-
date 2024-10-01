@@ -1,25 +1,17 @@
 package internal
 
 import (
+	dbl "api-rest/internal/infrastructure/db"
 	"fmt"
-
-	db "api-rest/internal/infraestucture"
-
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
 )
 
-const (
-	TimeZone = "America/Sao_Paulo"
-)
+func App() {
 
-func ConectionDb(config *db.Config) (*gorm.DB, error) {
-
-	conection := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s", config.Host,config.User, config.Password, config.DbName, config.Port, config.Sslmode, TimeZone)
-	db, err := gorm.Open(postgres.Open(conection))
+	db, err := dbl.NewFlorECulturaDB()
 	if err != nil {
-		fmt.Println(err, "database not connected")
+		panic("Falha ao conectar o banco de dados")
 	}
-	return db, err
+
+	fmt.Println(" conectado com sucesso", db)
 
 }

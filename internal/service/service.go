@@ -1,7 +1,7 @@
 package service
 
 import (
-	"api-rest/internal/core"
+	core"api-rest/internal/core"
 	"fmt"
 
 	"gorm.io/gorm"
@@ -22,3 +22,9 @@ func GetAll(db *gorm.DB) ([]core.Produtos, error) {
 	}
 	return produtos, nil
 }
+
+//func Insert(db*gorm.DB) error{
+	//if core.Id == nil {
+
+	//}
+	//}
