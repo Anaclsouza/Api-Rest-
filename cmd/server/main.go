@@ -2,6 +2,8 @@ package main
 
 import (
 	app "api-rest/internal/app"
+	"api-rest/internal/core"
+	"api-rest/internal/transport"
 
 	"github.com/spf13/viper"
 )
@@ -19,6 +21,14 @@ func main() {
 	// Carrega a configuração a partir do arquivo JSON
 
 	app.App()
+	core.HistoriasFlores = []core.HistoriaFlor{
+        {Id: 1, Nome: "flor1", Descricao: "historia1"},
+		{Id: 2, Nome: "flor2", Descricao: "historia2"},
+        
+
+}
+transport.HandleRequest()
+
 
 }
 

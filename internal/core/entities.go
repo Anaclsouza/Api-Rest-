@@ -1,7 +1,9 @@
 package core
 
-type Produtos struct{
+type HistoriaFlor struct{
 	Id 					int64
 	Nome 				string
 	Descricao 			string
 }
+
+var HistoriasFlores []HistoriaFlor

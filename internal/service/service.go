@@ -8,19 +8,19 @@ import (
 )
 
 // pega todos os produtos cadastrados no banco
-func GetAll(db *gorm.DB) ([]core.Produtos, error) {
+func GetAll(db *gorm.DB) ([]core.HistoriaFlor, error) {
 
-	var produtos []core.Produtos
+	var historias []core.HistoriaFlor
 
-	if err := db.Table("produtos").Find(&produtos).Error; err != nil {
+	if err := db.Table("produtos").Find(&historias).Error; err != nil {
 		fmt.Println("Erro ao buscar os produtos:", err)
 
 	}
 
-	for _, produto := range produtos {
-		fmt.Println(produto)
+	for _, historia := range historias {
+		fmt.Println(historia)
 	}
-	return produtos, nil
+	return historias, nil
 }
 
 //func Insert(db*gorm.DB) error{
