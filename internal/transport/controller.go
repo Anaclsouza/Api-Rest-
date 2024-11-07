@@ -16,14 +16,14 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 func GetAllHistories(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(core.HistoriasFlores)
-} 
+	json.NewEncoder(w).Encode(core.FlorComCulturaList)
+}
 
 func GetHistory(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	id:= vars["id"]
+	id := vars["id"]
 
-	for _, historia := range core.HistoriasFlores{
+	for _, historia := range core.FlorComCulturaList {
 		if strconv.Itoa(int(historia.Id)) == id {
 			json.NewEncoder(w).Encode(historia)
 		}

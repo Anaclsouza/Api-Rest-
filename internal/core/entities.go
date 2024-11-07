@@ -1,9 +1,11 @@
 package core
 
-type HistoriaFlor struct{
+type FlorComCultura struct{
 	Id 					int64
 	Nome 				string
 	Descricao 			string
+	Cuidados            string
+	Estacao             string
 }
 
-var HistoriasFlores []HistoriaFlor
+var FlorComCulturaList []FlorComCultura

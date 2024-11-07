@@ -21,7 +21,7 @@ func main() {
 	// Carrega a configuração a partir do arquivo JSON
 
 	app.App()
-	core.HistoriasFlores = []core.HistoriaFlor{
+	 core.FlorComCulturaList = []core.FlorComCultura{
         {Id: 1, Nome: "flor1", Descricao: "historia1"},
 		{Id: 2, Nome: "flor2", Descricao: "historia2"},
         
